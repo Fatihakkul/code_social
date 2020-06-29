@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "289706798771",
+    "firebase_url": "https://testmania-152c9.firebaseio.com",
+    "project_id": "testmania-152c9",
+    "storage_bucket": "testmania-152c9.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:289706798771:android:213605c47fd2e150b14ac6",
+        "android_client_info": {
+          "package_name": "com.kodluyoruz_end"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "289706798771-v31qol8hvnuoa9fkpqk5ng5jo2rff7s6.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCAxr9WPXqlN-pcSIZGf7Q-cQLbbDcS7PY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "289706798771-v31qol8hvnuoa9fkpqk5ng5jo2rff7s6.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
