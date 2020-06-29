@@ -16,6 +16,7 @@ const styles= {
         myButton : StyleSheet.create({
             container : {
                 backgroundColor : 'white',
+                
                 borderRadius : 10,
                 marginTop : 15,
                 padding : 10,
