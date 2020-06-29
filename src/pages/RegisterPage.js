@@ -22,6 +22,7 @@ const RegisterPage =props=>{
                     .createUserWithEmailAndPassword(userMail,userPass)
                     .then(()=>{
                     Alert.alert('Hesabınız oluşturulmuştur')
+                    props.navigation.navigate("LoginPage")
                     })
                     .catch((err)=>{
                         if (err.code === 'auth/email-already-in-use') {
@@ -36,6 +37,10 @@ const RegisterPage =props=>{
                     })
             }else Alert.alert('Şifreleriniz uyuşmamaktadır!')
         }else Alert.alert('Lütfen alanları doldurunuz!')
+    }
+
+    function backLogin(){
+        props.navigation.navigate("LoginPage")
     }
 
     return(
@@ -68,7 +73,7 @@ const RegisterPage =props=>{
                     </View>
                     <View style={{flex:1,alignItems : 'center'}}>
                         <MyButton title="Kayıt Ol" onPress={saveUser} />
-                        <MyButton  title="Vazgeç"  />
+                        <MyButton  title="Vazgeç"  onPress={backLogin} />
                     </View>
                 </View>
            </ScrollView>

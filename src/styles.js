@@ -16,7 +16,7 @@ const styles= {
         myButton : StyleSheet.create({
             container : {
                 backgroundColor : 'white',
-                
+
                 borderRadius : 10,
                 marginTop : 15,
                 padding : 10,
@@ -37,6 +37,7 @@ const styles= {
                 width : Dimensions.get('window').width * 1/3,
                 resizeMode : 'contain',
                 alignSelf : 'center'
+               
             }
         })
     },
@@ -46,6 +47,13 @@ const styles= {
                 flex: 1,
                 justifyContent: 'center',
                 backgroundColor: "#80cbc4"
+            }
+        }),
+        LoginPage : StyleSheet.create({
+           container : {
+                flex: 1,
+                justifyContent: 'center',
+                backgroundColor: "#ffa000"
             }
         })
     }
