@@ -67,7 +67,6 @@ const RegisterPage =props=>{
                         <Input 
                         holder="Şifrenizi tekrar giriniz..."
                         secure={true}
-                    
                         onChangeText={savePassRep}
                         />
                     </View>

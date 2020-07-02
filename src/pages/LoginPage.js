@@ -30,6 +30,7 @@ const LoginPage =props=>{
     function saveUser(){
         props.navigation.navigate("RegisterPage")
     }
+    
     return(
         <SafeAreaView style={{flex:1}}>
         <ScrollView style={{flex:1,backgroundColor : '#ffa000'}} bounces={false}>

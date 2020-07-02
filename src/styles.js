@@ -28,6 +28,65 @@ const styles= {
                 fontSize: 17
             
             }
+        }),
+        PostInput : StyleSheet.create({
+            container : {
+                backgroundColor : '#ffa000',
+                flexDirection : 'row',
+                width : Dimensions.get('window').width * 0.9,
+                alignItems : 'center',
+                justifyContent : 'space-between',
+                borderRadius : 12,
+                paddingHorizontal : 10
+            },
+            text :{
+                fontSize : 18,
+                width : Dimensions.get('window').width * 0.8,
+                color : 'white'
+                
+            }
+        }),
+        MainListItem : StyleSheet.create({
+            container : {
+               marginVertical : 15
+            
+            },
+            postContainer : {
+                flexDirection : 'row',
+                justifyContent : 'space-between',
+                paddingVertical : 5,
+                borderWidth : 2,
+                borderColor : 'black'
+                
+                
+            },
+            post : {
+                fontSize : 18,
+                marginLeft : 5,
+                marginTop : 5,
+                width : Dimensions.get('window').width * 0.87
+            },
+            addFavoritebutton : {
+                alignSelf : 'flex-end',
+                paddingRight : 5
+            },
+            userName : {
+                
+                flexDirection : 'row',
+                paddingLeft: 5
+            },
+            nameText :{
+                fontSize : 18,
+                color : 'white',
+                marginLeft : 5
+            },
+            userContainer : {
+                backgroundColor : '#ffa000',
+                flexDirection: 'row',
+                alignItems :'center',
+                justifyContent : 'space-between',
+                padding : 5
+            }
         })
     },
     assets : {
@@ -54,6 +113,14 @@ const styles= {
                 flex: 1,
                 justifyContent: 'center',
                 backgroundColor: "#ffa000"
+            }
+        }),
+        MainPage : StyleSheet.create({
+            container : {  
+                flex: 1,
+                alignItems: 'center',
+                flexDirection : 'column',
+                marginBottom : 15
             }
         })
     }
