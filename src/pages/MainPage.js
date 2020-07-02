@@ -15,7 +15,7 @@ const MainPage =props=>{
 
     useEffect(() => {
         database()
-            .ref(`/users/`)
+            .ref(`/users/${user.uid}`)
             .once('value')
             .then(response =>{
                 if(response.val() != null){
@@ -24,15 +24,15 @@ const MainPage =props=>{
                     console.log(dataList)
                 }
             })
-    }, [])
+    }, [dataList])
     
     const sendData =()=>{
         let newList=[...list]
-        newList.push(text , user.uid)
+        newList.push(text)
         setList(newList)
-
-        database().ref(`/${user.uid}/`)
-        .push();
+          
+        database().ref(`/users/${user.uid}/`)
+        .push(text);
       
     }
 
@@ -51,7 +51,7 @@ const MainPage =props=>{
             <View style={styles.pages.MainPage.container}> 
                 <FlatList 
                     keyExtractor={(item,index)=>index.toString()}
-                    data={list}
+                    data={dataList}
                     renderItem={renderPost}
                 />
                <PostInput onChangeText={(text)=>setText(text)} onPress={sendData}/>
