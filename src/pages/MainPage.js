@@ -1,48 +1,76 @@
-import React,{useState,useEffect} from 'react'
+import React,{useState,useEffect,useContext} from 'react'
 import database from '@react-native-firebase/database';
+import Context from '../context/store'
 import auth from '@react-native-firebase/auth'
-import {SafeAreaView,View,Text, FlatList} from 'react-native'
+import {SafeAreaView,View,Text, FlatList, ActivityIndicatorComponent} from 'react-native'
 import {PostInput,MainListItem} from '../components'
+import Moment from 'moment'
+import 'moment/locale/tr'
+
 import styles from '../styles'
 
+
 const MainPage =props=>{
-
+    
+    const time=Moment().year('year').month('month').date('days')._d.toString();
     const user= auth().currentUser
+    const email = user.email
 
-    const [list,setList]=useState([])
+    const {state , dispatch} = useContext(Context)
     const [text,setText]=useState("")
-    const [dataList,setDataList]=useState([])
+    const [users, setUsers]=useState([])
+    
+    
+
 
     useEffect(() => {
-        database()
-            .ref(`/users/${user.uid}`)
+      getData();
+      
+     
+    }, [])
+
+  const getData=()=>{
+            database()
+            .ref('/posts/')
             .once('value')
-            .then(response =>{
-                if(response.val() != null){
-                    let responseList = Object.values(response.val());
-                    setDataList(responseList)
-                    console.log(dataList)
+            .then(res=>{
+                if(res != null){
+                    let resList = Object.values(res.val());
+                    setUsers(resList)
+                   
                 }
             })
-    }, [dataList])
+        }
     
+
     const sendData =()=>{
-        let newList=[...list]
-        newList.push(text)
-        setList(newList)
-          
-        database().ref(`/users/${user.uid}/`)
-        .push(text);
-      
+        database()
+        .ref('/posts/')
+        .push({
+            email : email,
+            text : text,
+            time : time
+        })
+        getData();
     }
 
-    const renderPost =({item})=>{
+    function addFavorite (i) {
+       
+        let newlist=[...users]
+        dispatch({type : "SET_ITEM" , post : newlist[i] })
+    // , index : i
+    }
+
+    const renderPost =({item,index})=>{
+        
         return (
             <MainListItem 
-                onPress={()=>console.log('button')}
-                post={item}
-                time={5}
-                name="Fatih"
+               
+                post={item.text}
+                time={Moment(item.time).fromNow().toString()}
+                name={item.email}
+                onPress={()=>addFavorite(index)}
+                
             />
         )
     }
@@ -51,7 +79,7 @@ const MainPage =props=>{
             <View style={styles.pages.MainPage.container}> 
                 <FlatList 
                     keyExtractor={(item,index)=>index.toString()}
-                    data={dataList}
+                    data={users}
                     renderItem={renderPost}
                 />
                <PostInput onChangeText={(text)=>setText(text)} onPress={sendData}/>

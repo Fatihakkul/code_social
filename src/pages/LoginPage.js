@@ -1,5 +1,6 @@
 import React,{useState} from 'react'
 import auth from '@react-native-firebase/auth'
+import AsyncStorage from '@react-native-community/async-storage';
 import {SafeAreaView,View,Text,ScrollView,Image} from 'react-native'
 import {Input,MyButton} from '../components'
 import styles from '../styles'
@@ -20,6 +21,7 @@ const LoginPage =props=>{
                 .signInWithEmailAndPassword(userMail,userPass)
                 .then(()=>{
                     props.navigation.navigate("Main")
+                    AsyncStorage.setItem('@USER_ID' , auth().currentUser.uid)
                 })
                 .catch((err)=>{
                     console.log(err)

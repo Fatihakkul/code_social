@@ -1,8 +1,11 @@
 import React from 'react'
 import {View,TouchableOpacity,Text,Image} from 'react-native'
+import Moment from 'moment'
 import styles from '../styles'
 
 const MainListItem =props=>{
+  
+    
     return(
         <View style={styles.components.MainListItem.container}>
             <View style={styles.components.MainListItem.userContainer}>
@@ -11,7 +14,7 @@ const MainListItem =props=>{
                     <Text style={styles.components.MainListItem.nameText}>{props.name}</Text>
                     
                 </View>
-                <Text style={{color : 'white'}}>{props.time} dk önce</Text>
+                <Text style={{color : 'white'}}>{props.time}</Text>
             </View>
             <View style={styles.components.MainListItem.postContainer} >
                 <Text style={styles.components.MainListItem.post}>{props.post}</Text>
