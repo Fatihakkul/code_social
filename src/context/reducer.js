@@ -6,8 +6,14 @@ export function reducer (state , action){
                 newlist.push(value)
                 state.posts=newlist
              return {...state}
-          
-    
+        case "DELETE_ITEM":
+            let newList = [...state.posts]
+            const i = action.index
+            if(i> -1)newList.splice(i,1)
+            
+            state.posts=newList
+            return {...state}
+       
         default:
             return state
     }

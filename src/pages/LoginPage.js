@@ -1,10 +1,10 @@
-import React,{useState} from 'react'
+import React,{useState,useEffect} from 'react'
 import auth from '@react-native-firebase/auth'
 import AsyncStorage from '@react-native-community/async-storage';
 import {SafeAreaView,View,Text,ScrollView,Image} from 'react-native'
 import {Input,MyButton} from '../components'
 import styles from '../styles'
-
+import SplashScreen from 'react-native-splash-screen';
 
 
 const LoginPage =props=>{
@@ -15,6 +15,25 @@ const LoginPage =props=>{
     const LoginMail =(text)=> setUserMail(text)
     const LoginPass =(text)=> setUserPass(text)
 
+    useEffect(() => {
+       
+        AsyncStorage
+            .getItem('@USER_ID')
+            .then(res=>{
+                if(res == null){ 
+                    
+                    props.navigation.navigate('LoginPage')
+                    SplashScreen.hide();
+                }else{
+                   
+                    props.navigation.navigate('Main') 
+                    SplashScreen.hide();
+                }
+            })
+            
+    }, [])
+
+
     const loginApp =()=>{
         if(userMail.length != 0 && userPass.length != 0){
             auth()
@@ -23,9 +42,7 @@ const LoginPage =props=>{
                     props.navigation.navigate("Main")
                     AsyncStorage.setItem('@USER_ID' , auth().currentUser.uid)
                 })
-                .catch((err)=>{
-                    console.log(err)
-                })
+                
         }
     }
     

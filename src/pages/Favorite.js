@@ -16,12 +16,19 @@ const Favorite =props=>{
            
         
     }
-    const renderFavorite =({item})=>{
+
+    function deleteFavorite(i){
+           dispatch({type : "DELETE_ITEM" , index : i})
+           
+    }
+    const renderFavorite =({item,index})=>{
             return(
             <MainListItem 
               post={item.text}
               time={moment(item.time).fromNow().toString()}
-              name={item.email}/>
+              name={item.email}
+              onPress={()=>deleteFavorite(index)}
+              />
               )
             }
     return(
@@ -37,7 +44,6 @@ const Favorite =props=>{
                     keyExtractor={(_,index)=>index.toString()}
                     data={state.posts}
                     renderItem={renderFavorite}
-
                     />
               </View>
             </View>

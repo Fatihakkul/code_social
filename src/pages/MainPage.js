@@ -2,7 +2,7 @@ import React,{useState,useEffect,useContext} from 'react'
 import database from '@react-native-firebase/database';
 import Context from '../context/store'
 import auth from '@react-native-firebase/auth'
-import {SafeAreaView,View,Text, FlatList, ActivityIndicatorComponent} from 'react-native'
+import {SafeAreaView,View, FlatList} from 'react-native'
 import {PostInput,MainListItem} from '../components'
 import Moment from 'moment'
 import 'moment/locale/tr'
@@ -21,8 +21,8 @@ const MainPage =props=>{
     const [users, setUsers]=useState([])
     
     
-
-
+    
+     
     useEffect(() => {
       getData();
       
@@ -40,9 +40,10 @@ const MainPage =props=>{
                    
                 }
             })
+            
         }
     
-
+    
     const sendData =()=>{
         database()
         .ref('/posts/')
@@ -58,7 +59,6 @@ const MainPage =props=>{
        
         let newlist=[...users]
         dispatch({type : "SET_ITEM" , post : newlist[i] })
-    // , index : i
     }
 
     const renderPost =({item,index})=>{

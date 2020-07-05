@@ -1,5 +1,5 @@
 import React from 'react'
-import {SafeAreaView,Text,Image,TouchableOpacity, View,Dimensions} from 'react-native'
+import {Text,Image,TouchableOpacity, View,Dimensions} from 'react-native'
 
 const FavoriteNavbar =(props)=>{
         return(

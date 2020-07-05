@@ -2,7 +2,7 @@ import React from 'react'
 import {createStackNavigator} from '@react-navigation/stack'
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs'
 import { NavigationContainer } from '@react-navigation/native';
-import {LoginPage,RegisterPage,MainPage,Favorite,Splash} from './pages'
+import {LoginPage,RegisterPage,MainPage,Favorite} from './pages'
 import Provider from './context/Provider'
 
 const Stack=createStackNavigator();
@@ -23,8 +23,7 @@ function Rotuer(){
     return(
         <Provider>
             <NavigationContainer>
-                <Stack.Navigator initialRouteName="SplashPage">
-                    <Stack.Screen name='SplashPage' component={Splash} />
+                <Stack.Navigator initialRouteName="LoginPage">
                     <Stack.Screen name="RegisterPage" component={RegisterPage} options={{headerShown : false}}/> 
                     <Stack.Screen name="LoginPage" component={LoginPage} options={{headerShown : false}}/>
                     <Stack.Screen name="Main" component={Main}  options={{headerShown : false}}/>
