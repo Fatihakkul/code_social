@@ -19,8 +19,8 @@ const Favorite =props=>{
 
     function deleteFavorite(i){
            dispatch({type : "DELETE_ITEM" , index : i})
-           
     }
+
     const renderFavorite =({item,index})=>{
             return(
             <MainListItem 
@@ -28,9 +28,10 @@ const Favorite =props=>{
               time={moment(item.time).fromNow().toString()}
               name={item.email}
               onPress={()=>deleteFavorite(index)}
-              />
-              )
+            />
+            )
             }
+            
     return(
         <SafeAreaView >
             <View >

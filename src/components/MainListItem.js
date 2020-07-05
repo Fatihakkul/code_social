@@ -4,14 +4,14 @@ import styles from '../styles'
 
 const MainListItem =props=>{
      
-    const posta = props.name.substring(0 , props.name.lastIndexOf('@'))
+    const userName = props.name.substring(0 , props.name.lastIndexOf('@'))
  
     return(
         <View style={styles.components.MainListItem.container}>
             <View style={styles.components.MainListItem.userContainer}>
                 <View style={styles.components.MainListItem.userName}>
                     <Image style={{width : 24,height : 24}} source={require('../assets/rocket.png')}/>
-                    <Text style={styles.components.MainListItem.nameText}>{posta}</Text>
+                    <Text style={styles.components.MainListItem.nameText}>{userName}</Text>
                     
                 </View>
                 <Text style={{color : 'white'}}>{props.time}</Text>
