@@ -2,7 +2,7 @@ import React from 'react'
 import {createStackNavigator} from '@react-navigation/stack'
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs'
 import { NavigationContainer } from '@react-navigation/native';
-import {LoginPage,RegisterPage,MainPage,Favorite} from './pages'
+import {LoginPage,RegisterPage,MainPage,Favorite,UploadScreen} from './pages'
 import Provider from './context/Provider'
 
 const Stack=createStackNavigator();
@@ -14,7 +14,7 @@ function Main(){
         <Tab.Navigator initialRouteName="MainPage"> 
             <Tab.Screen name="FavoritePage" component={Favorite} options={{ title : "Favoriler"}} />
             <Tab.Screen name="MainPage" component={MainPage}  options={{ title : "Gönderiler" }} />
-           
+           <Tab.Screen name="UploadScreen" component={UploadScreen} options={{title : "Foto Yükle"}} />
         </Tab.Navigator>
     )
 }

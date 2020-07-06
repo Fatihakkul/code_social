@@ -35,6 +35,7 @@ const styles= {
                 flexDirection : 'row',
                 width : Dimensions.get('window').width * 0.9,
                 alignItems : 'center',
+                alignSelf: 'center',
                 justifyContent : 'space-between',
                 borderRadius : 12,
                 paddingHorizontal : 10
@@ -49,14 +50,15 @@ const styles= {
         MainListItem : StyleSheet.create({
             container : {
                marginVertical : 15
-            
             },
             postContainer : {
                 flexDirection : 'row',
-                justifyContent : 'space-between',
-                paddingVertical : 5,
-                borderWidth : 2,
+                justifyContent : 'flex-end',
+                alignItems : 'center',
+                paddingBottom : 2,
+                borderBottomWidth : 0.5,
                 borderColor : 'black'
+               
                 
                 
             },
@@ -64,7 +66,7 @@ const styles= {
                 fontSize : 18,
                 marginLeft : 5,
                 marginTop : 5,
-                width : Dimensions.get('window').width * 0.87
+                width : Dimensions.get('window').width * 0.8
             },
             addFavoritebutton : {
                 alignSelf : 'flex-end',
@@ -118,7 +120,7 @@ const styles= {
         MainPage : StyleSheet.create({
             container : {  
                 flex: 1,
-                alignItems: 'center',
+               
                 flexDirection : 'column',
                 marginBottom : 15
             }
